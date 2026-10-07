@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://p1ww6vgc80oo"]
+
+[ext_resource type="Script" uid="uid://cpu4agkgr62aj" path="res://Scripts/PlayerMovementController.cs" id="1_j1ubg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_at13k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0kik"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r7i7u"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_at13k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_at13k"]
+size = Vector3(2.6308594, 2.4414063, 2.73938)
+
+[node name="Node3D" type="Node3D" unique_id=725493217]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1275232933]
+transform = Transform3D(16.015423, 0, 0, 0, 1, 0, 0, 0, 16.015423, 0, 0, 0)
+mesh = SubResource("PlaneMesh_at13k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=70383166]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=495428909]
+transform = Transform3D(1.9689465, 0, 0, 0, 1, 0, 0, 0, 1.9689465, 0, 0, 0)
+shape = SubResource("BoxShape3D_d0kik")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1953728485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0700471, 0)
+script = ExtResource("1_j1ubg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=230047734]
+shape = SubResource("CapsuleShape3D_r7i7u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=645083339]
+mesh = SubResource("CapsuleMesh_at13k")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=753758862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5987607, 0)
+fov = 60.0
+near = 0.001
+
+[node name="Box" type="MeshInstance3D" parent="." unique_id=1399923384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8806396, 1.1767426, -9.045084)
+mesh = SubResource("BoxMesh_at13k")
+
+[node name="Box2" type="MeshInstance3D" parent="." unique_id=1505513268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3570447, 1.1767426, -12.580652)
+mesh = SubResource("BoxMesh_at13k")
+
+[node name="Box3" type="MeshInstance3D" parent="." unique_id=1956984131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9826055, 1.1767426, -11.498789)
+mesh = SubResource("BoxMesh_at13k")
+
+[node name="Box4" type="MeshInstance3D" parent="." unique_id=823647700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9277625, 1.1767426, 5.1801395)
+mesh = SubResource("BoxMesh_at13k")
